@@ -2,8 +2,8 @@
 This python script is for SI and TI measurement for 360&deg; video in the spherical domain.
 
 ## __Requirement__
-* Python > 3.5
-* OpenCV
+* python > 3.5
+* opencv-python >= 3.4.2
 
 ## __How to Use__
 
