@@ -108,7 +108,7 @@ def colorCVT(frame):
 
 
 if __name__ == '__main__':
-    cap = cv2.VideoCapture(video_filename)  # The input 360° video is under equirectangular projection
+    cap = cv2.VideoCapture(video_filename)
     start_index = 0
     end_index = int(cap.get(7))
     frameIndex = 0
