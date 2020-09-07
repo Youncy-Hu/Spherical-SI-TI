@@ -17,7 +17,7 @@ s_x = np.array([[-1, 0, 1],
                 [-1, 0, 1]])
 s_y = np.array([[1, 2, 1],
                 [0, 0, 0],
-                [-1, -2, -1]])   # Sobel kernel
+                [-1, -2, -1]])   # Sobel filter
 
 
 def patchSph(img, phi0, theta0, window_size, pix_angle, width, height):
@@ -32,7 +32,7 @@ def patchSph(img, phi0, theta0, window_size, pix_angle, width, height):
         for j in range(window_size):
             phi[i, j] = phi0 + (i+1 - ceil(window_size / 2)) * pix_angle
             theta[i, j] = theta0 + (j+1 - ceil(window_size / 2)) * pix_angle
-            if phi[i, j] > 180:
+            if phi[i, j] > 180:              # The boundary is filled with the other side, as the left and right sides of the sphere are connected
                 phi[i, j] = phi[i, j] - 2 * 180
             elif phi[i, j] < -180:
                 phi[i, j] = phi[i, j] + 2 * 180
@@ -59,7 +59,7 @@ def getSiFeature(frame):
     for i in range(height):
         weight[i, :] = cos(((i + 1 + 0.5 - (height / 2)) * pi) / height)
 
-    pix_angle = (2*180)/width
+    pix_angle = (2*180)/width  # angle of each sampling point
     u = np.zeros((height, width), dtype=float)
     v = np.zeros((height, width), dtype=float)
     sobel_h = np.zeros((height, width), dtype=float)
@@ -67,13 +67,13 @@ def getSiFeature(frame):
     for n in range(width):
         u[:, n] = (n + 1 - 0.5) / width
     for m in range(height):
-        v[m, :] = (m + 1 - 0.5) / height
+        v[m, :] = (m + 1 - 0.5) / height # convert sampling coordinate to 2D projection uv plane
 
     for m in range(height):
         TimeStamp = time.time()
         for n in range(width):
             phi0 = 2 * 180 * (u[m, n] - 0.5)
-            theta0 = 180 * (0.5 - v[m, n])
+            theta0 = 180 * (0.5 - v[m, n])  # convert uv plane coordinate to longitude and latitude
             P_w = patchSph(frame, phi0, theta0, 3, pix_angle, width, height)
             sob_x = sum(sum(P_w * s_x))
             sob_y = sum(sum(P_w * s_y))
