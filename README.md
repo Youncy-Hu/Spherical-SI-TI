@@ -14,7 +14,9 @@ Considering planar representations (equirectangular, cube-map, etc.) change the 
 ## __Notes__
 This script applies to 360&deg; video of equirectangular projection format. For other projection formats, please change the code of 2D-3D coordinate conversion and weight. The conversion and weight derivation methods for different projection formats are introduced in [JVET F1003].
 
-##__Reference__
+## __Reference__
 [Coming soon]...
+
 [Chen, 2018] S. Chen, Y. Zhang, Y. Li, Z. Chen, and Z. Wang, "Spherical Structural Similarity Index for Objective Omnidirectional Video Quality Assessment," IEEE International Conference on Multimedia and Expo (ICME), July, 2018.
+
 [JVET-F1003] Y. Ye, E. Alshina, and J. Boyce, "Algorithm descriptions of projection format conversion and video quality metrics in 360Lib," JVET-F1003, Hobart, AU, March 31-April 7, 2017.
