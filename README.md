@@ -1,4 +1,4 @@
-# Spherical-SI-TI
+# Spherical SI/TI
 This python script is for SI and TI measurement for 360&deg; video in the spherical domain.
 
 Considering planar representations (equirectangular, cube-map, etc.) change the characterization of the 360o content because of warping, discontinuities, etc., the spatial and temporal information measurement on 2D planar cannot represent the information subjects perceived using HMD. This algorithem calculates the spatial information (SI) and temporal information (TI) defined in [ITU-T P.910] in the spherical domain. The methodology please refer to [Coming soon] and [Chen, 2018].
